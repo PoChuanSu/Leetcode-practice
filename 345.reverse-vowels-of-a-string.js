@@ -19,7 +19,6 @@ var reverseVowels = function(s) {
             let tmp = s[i];
             s[i] = s[j];
             s[j] = tmp;
-            console.log(s);
             i++;
             j--;
         }
