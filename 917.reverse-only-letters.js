@@ -29,9 +29,7 @@ var reverseOnlyLetters = function(s) {
         }
 
         else {
-            let tmp = s[i];
-            s[i] = s[j];
-            s[j] = tmp;
+            [s[i], s[j]] = [s[j], s[i]];
             i++;
             j--;
         }
