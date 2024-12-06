@@ -65,4 +65,54 @@ class SinglyLinkedList{
         }
         return currentHead;
     }
+
+    unshift (val) {
+        var newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+
+        this.length++;
+        return this;
+    }
+
+    get (index) {
+        if (index < 0 || index >= this.length) return null;
+        var count = 0;
+        var current = this.head;
+        
+        while (counter !== index) {
+            current = current.next;
+            counter ++;
+        }
+
+        return current;
+    }
+
+    set (value, index) {
+        var node = this.get(index);
+        if (node) {
+            node.val = value;
+            return true;
+        }
+        return false;
+    }
+
+    insert (value, index) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+        
+        var newNode = new Node(val);
+        var prev = this.get(index -1);
+        var temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
 }
