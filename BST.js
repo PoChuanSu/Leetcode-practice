@@ -69,10 +69,49 @@ class BinarySearchTree {
 
         while (queue.length) {
             node = queue.shift();
-            data.push(node);
+            data.push(node.value);
             if (node.left) queue.push(node.left);
             if (node.right) queue.push(node.right);
         }
+        return data;
+    }
+
+    DFSPreOrder() {
+        var data = [];
+        var cur = this.root;
+
+        function preHelper(node) {
+            data.push(node.value);
+            if (node.left) return preHelper(node.left);
+            if (node.right) return preHelper(node.right);
+        }
+        preHelper(cur);
+        return data;
+    }
+
+    DFSPostOrder() {
+        var data = [];
+        var cur = this.root;
+
+        function postHelper(node) {
+            if (node.left) return postHelper(node.left);
+            if (node.right) return postHelper(node.right);
+            data.push(node.value);
+        }
+        postHelper(cur);
+        return data;
+    }
+
+    DFSInOrder() {
+        var data = [];
+        var cur = this.root;
+
+        function inHelper(node) {
+            if (node.left) return inHelper(node.left);
+            data.push(node.value);
+            if (node.right) return inHelper(node.right);
+        }
+        inHelper(cur);
         return data;
     }
 }
