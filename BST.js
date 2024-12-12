@@ -61,7 +61,7 @@ class BinarySearchTree {
     }
 
     BFS() {
-        var prio = [],
+        var queue = [],
             data = [],
             node = this.root;
 
